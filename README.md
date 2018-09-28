@@ -192,8 +192,8 @@ rsa.generateKeypair(function(keypair) {
 
 // RSA can be also initialized with options
 var rsa = new RSA({
-    keySize: 4096, 
-    rsaStandard: 'RSA-OAEP'  // RSA-OAEP or RSAES-PKCS1-V1_5, 
+    keySize: 4096,
+    rsaStandard: 'RSA-OAEP'  // RSA-OAEP or RSAES-PKCS1-V1_5,
 });
 
 ```

@@ -55,7 +55,7 @@ describe('Crypt', function() {
     it('should encrypt message', function() {
 
         var encrypted = crypt.encrypt(publicKey, 'Hello world!');
-        
+
         // Encrypted message should be string
         assert.typeOf(encrypted, 'string');
 
@@ -70,7 +70,7 @@ describe('Crypt', function() {
 
     it('should decrypt message', function() {
         var encrypted = '{"v":"hybrid-crypto-js_0.1.0","iv":"NA78kG6uKcCckJX8wuJTT1q7nHki9hsSvFwIr96wqto=","keys":{"85:3d:10:e1:56:f2:ef:14:86:1e:ff:8c:5d:72:9c:82:a3:ff:10:f0":"q2kAMD3VC/HQGfLsbk0OBtk4pFSBIFfbN7Xh47rn+FecBdLUMkSMcLfD/UIqBA3MM3VHOvJ3BXnrduDnbMrrQMZjLaK0SmkSK+vcZmmQjNnlFqlnyGYuGpF/0q3g367rC5RMEa1cRX+12/gLPHEomcby/Onc+Ph12jSjloam+Rv4AlxEoS+5uMD6OeJ3VuBhUjCdZK86sTxoycHgF7GDkIrQr80EqxOwf1xO8XT9izMLDv16FBQ5q6FTZxY5/t2Cf5Vcn9yO+cPFvYd95YfB4T4XwmOKmwy21KhfvAPb1JLVOeJ74Q5/AZugnEDpL0omDDuC6iDZx0L0JqRm81oDDGyYENgW0ElTPM+G2voCR0wx85dFZ5ifypdyLv6C2BiOmCEHSn42Qbs08T3ggVc39dwnUnIHXirfWCzNyAzdhinv5Hv34edFEiVJbZtcGKMJWSpwn2OfT/O1EzhlTrEPsXPDEkKOZYC+bIxzu8BTcOuzsV0tHSUG6bS7o0yAZaFNYUHzCwmPLyLCqaZ5EQsgCdEJ1YObEGxxQkLXdtshcuzFNeRNgS+2z+v1tDVPeB4DmE3cvRc/y5hk84LqpuKSz9mLYW9Iw0DL07Wv0qPpelpOsxtRfePGttF9H9KEh0fXpf9R4zIzXs4iOOTPlWd/H997ah+7RRERZndZpp/7/tE="},"cipher":"CskoOPzs2J2p0ygmW9W9wQ=="}';
-        
+
         // Encrypt encrypted message with corresponding private key
         var decrypted = crypt.decrypt(privateKey, encrypted).message;
 
@@ -83,7 +83,7 @@ describe('Crypt', function() {
 
         // Encrypt message with single public key
         var encrypted = crypt.encrypt(publicKey, message);
-        
+
         // Decrypt message with corresponding private key
         var decrypted = crypt.decrypt(privateKey, encrypted).message;
 
@@ -96,7 +96,7 @@ describe('Crypt', function() {
 
     it('should encrypt and decrypt message with uncommon characters', function() {
         var message = 'Ṭèßt ṃéŝŜǎg€: HẹḷȴϿ Ŵöŗľƿ!';
-        
+
         // Encrypt message with single public key
         var encrypted = crypt.encrypt(publicKey, message);
 
@@ -115,7 +115,7 @@ describe('Crypt', function() {
 
         // Encrypt message with multiple public keys
         var encrypted = crypt.encrypt([publicKey, publicKey2], message);
-        
+
         // Decrypt message with both private keys
         var decrypted1 = crypt.decrypt(privateKey, encrypted).message;
         var decrypted2 = crypt.decrypt(privateKey2, encrypted).message;
@@ -131,7 +131,7 @@ describe('Crypt', function() {
 
         // Encrypt message with single public key
         var encrypted = crypt.encrypt(publicKey, message);
-        
+
         // Decrypt message with corresponding private key
         var decrypted = crypt.decrypt(privateKey2, encrypted);
 
@@ -144,7 +144,7 @@ describe('Crypt', function() {
 
         // Create signature
         var signature = crypt.signature(privateKey, message);
-        
+
         // Signature should be string with the length of atleast 1
         assert.typeOf(signature, 'string');
         assert.isAtLeast(signature.length, 0);
@@ -216,7 +216,7 @@ describe('Crypt', function() {
         assert.equal(decrypted.message, message);
 
         // Signature should be verified
-        assert.equal(verified, true);        
+        assert.equal(verified, true);
     });
 
 });
